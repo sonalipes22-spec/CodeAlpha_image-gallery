@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Image <span>Gallery</span></h1>
+        <p>Explore the Beauty of Nature</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Search -->
+        <div class="toolbar">
+            <input type="search" id="searchInput"
+                   placeholder="Search images..." aria-label="Search images">
+
+            <select id="sortSelect" aria-label="Sort images">
+                <option value="default">Default order</option>
+                <option value="az">Name: A to Z</option>
+                <option value="za">Name: Z to A</option>
+            </select>
+        </div>
+
+        <!-- Category filters -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nature">Nature</button>
+            <button class="filter-btn" data-filter="flower">Flower</button>
+            <button class="filter-btn" data-filter="beach">Beach</button>
+        </div>
+
+        <p id="imageCount" class="image-count"></p>
+
+        <!-- Gallery: apni images yahan add karo -->
+        
+<section class="gallery" id="gallery">
+
+    <!-- NATURE: 4 IMAGES -->
+
+    <article class="gallery-item" data-category="nature">
+        <img src="images/nature1.jpg" alt="nature"
+             data-title="Nature" loading="lazy">
+        <div class="image-caption">
+           <h3>Mountain Sunset</h3> 
+            <button class="open-btn">View Image ↗</button>
+        </div>
+            
+    </article>
+
+    <article class="gallery-item" data-category="nature">
+        <img src="images/nature2.jpg" alt="nature"
+             data-title="Nature" loading="lazy">
+        <div class="image-caption">
+            <h3>Golden Reflection</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="nature">
+        <img src="images/nature3.jpg" alt="nature"
+             data-title="Nature" loading="lazy">
+        <div class="image-caption">
+            <h3>Snowy Mountains</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="nature">
+        <img src="images/nature4.jpg" alt="nature"
+             data-title="Nature" loading="lazy">
+        <div class="image-caption">
+            <h3>alpine Valley</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+
+    <!-- FLOWERS: 4 IMAGES -->
+
+    <article class="gallery-item" data-category="flower">
+        <img src="images/flower1.jpg" alt="flower"
+             data-title="Flower" loading="lazy">
+        <div class="image-caption">
+            <h3>Pink Blossoms</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="flower">
+        <img src="images/flower2.jpg" alt="flower"
+             data-title="Flower" loading="lazy">
+        <div class="image-caption">
+            <h3>Cherry Blossoms</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="flower">
+        <img src="images/flower3.jpg" alt="flower"
+             data-title="Flower" loading="lazy">
+        <div class="image-caption">
+            <h3>Red Flower</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="flower">
+        <img src="images/flower4.jpg" alt=" flower"
+             data-title="Flower" loading="lazy">
+        <div class="image-caption">
+            <h3>Red Roses</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+
+    <!-- BEACH: 4 IMAGES -->
+
+    <article class="gallery-item" data-category="beach">
+        <img src="images/beach1.jpg" alt="Beach"
+             data-title="Beach" loading="lazy">
+        <div class="image-caption">
+            <h3>Tropical Beach</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="beach">
+        <img src="images/beach2.jpg" alt="Beach"
+             data-title="Beach" loading="lazy">
+        <div class="image-caption">
+            <h3>Palm Sunset</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="beach">
+        <img src="images/beach3.jpg" alt="beach"
+             data-title="Beach" loading="lazy">
+        <div class="image-caption">
+            <h3>Ocean Sunset</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+    <article class="gallery-item" data-category="beach">
+        <img src="images/beach4.jpg" alt="beach"
+             data-title="Beach" loading="lazy">
+        <div class="image-caption">
+            <h3>Blue Lagoon</h3>
+            <button class="open-btn">View Image ↗</button>
+        </div>
+    </article>
+
+</section>
+        <p id="emptyMessage" hidden>No images found. Try another search.</p>
+
+    </main>
+
+    <!-- Full-screen image viewer -->
+    <div class="lightbox" id="lightbox"
+         role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+
+        <div class="viewer-top">
+            <span id="viewerTitle">Image</span>
+            <button id="closeBtn" aria-label="Close viewer">✕</button>
+        </div>
+
+        <button class="nav-btn prev" id="prevBtn" aria-label="Previous image">❮</button>
+
+        <div class="image-stage" id="imageStage">
+            <img id="lightboxImg" src="" alt="">
+        </div>
+
+        <button class="nav-btn next" id="nextBtn" aria-label="Next image">❯</button>
+
+        <div class="viewer-bottom">
+            <span id="counter">1 / 6</span>
+
+            <div class="viewer-controls">
+                <button id="zoomOutBtn" title="Zoom out">−</button>
+                <button id="zoomResetBtn" title="Reset zoom">Reset</button>
+                <button id="zoomInBtn" title="Zoom in">+</button>
+                <button id="rotateBtn" title="Rotate image">↻</button>
+                <button id="fullscreenBtn" title="Fullscreen">⛶</button>
+                <button id="slideshowBtn" title="Start slideshow">▶ Slideshow</button>
+                <a id="downloadBtn" href="#" download>⬇ Download</a>
+            </div>
+        </div>
+
+        <p class="keyboard-help">
+            Keyboard: ← → Previous/Next · +/− Zoom · 0 Reset · Esc Close · Space Slideshow
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
